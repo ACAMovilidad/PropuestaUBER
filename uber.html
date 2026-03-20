@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACA × Uber | Clínica de Conducción Segura - Motos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FFD700;
+            --primary-dark: #FFA500;
+            --bg-dark: #1a1a1f;
+            --bg-card: #25252b;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        /* Compact Hero */
+        .hero {
+            background: linear-gradient(135deg, #25252b 0%, #1a1a1f 100%);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://kimi-web-img.moonshot.cn/img/images.ctfassets.net/a5cc3594496abe1dace445f9e17177256daed515.jpg') center/cover;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--primary);
+            color: #000;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* Intro Compact */
+        .intro-section {
+            background: #222228;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 0.95rem;
+            color: #c0c0c8;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 1.5rem 0;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item h4 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .stat-item p {
+            color: var(--text-secondary);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.2rem;
+        }
+
+        /* Two Column Layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.2rem;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .card-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .theory-card {
+            background: linear-gradient(145deg, #3a3520 0%, #2d2a1a 100%);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        /* Includes List Compact */
+        .includes-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+
+        .include-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            padding: 0.7rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            font-size: 0.85rem;
+        }
+
+        .check {
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-weight: bold;
+            flex-shrink: 0;
+            font-size: 0.7rem;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            margin-top: 1rem;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.8rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .info-icon {
+            color: var(--primary);
+        }
+
+        .divider {
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+            margin: 0.8rem 0;
+        }
+
+        /* Cotización Compact */
+        .cotizacion-box {
+            background: rgba(255, 215, 0, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            max-width: 400px;
+            margin: 1rem auto 0;
+        }
+
+        .cotizacion-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-secondary);
+            margin-bottom: 0.3rem;
+        }
+
+        .cotizacion-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .cotizacion-currency {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.3rem;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: #000;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: #000;
+        }
+
+        /* Final Image */
+        .final-image {
+            width: 100%;
+            height: 200px;
+            background: url('https://kimi-web-img.moonshot.cn/img/www.shutterstock.com/067ae68a9e34d30ec354cd59ac508c086ba3cc94.jpg') center/cover;
+            position: relative;
+            margin-top: 1rem;
+        }
+
+        .final-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, var(--bg-dark) 0%, transparent 70%);
+        }
+
+        /* Footer */
+        footer {
+            background: #151519;
+            padding: 1.5rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .partners {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .partner {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .partner span {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+            
+            .includes-list {
+                grid-template-columns: 1fr;
+            }
+
+            .info-row {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media print {
+            body {
+                font-size: 12px;
+            }
+            
+            .btn-group {
+                display: none;
+            }
+            
+            .final-image {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">Programa Exclusivo ACA × Uber</div>
+            <h1>Clínica de Conducción Segura<br><span style="font-size: 0.6em; font-weight: 400; color: var(--text-secondary);">Especialización en Motocicletas</span></h1>
+        </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="intro-section">
+        <p class="intro-text">
+            Con <span class="highlight">121 años de trayectoria</span>, el ACA lidera la transformación de la movilidad segura. Entendemos que el escenario motociclista urbano exige preparación específica: <span class="highlight">mayor exposición, riesgos diferenciales y responsabilidad con pasajeros</span>. Capacitar a conductores motociclistas reduce incidentes, eleva el estándar del servicio y construye cultura vial profesional.
+        </p>
+    </section>
+
+    <!-- Stats -->
+    <section class="section" style="padding: 1rem 0;">
+        <div class="container">
+            <div class="stats-row">
+                <div class="stat-item">
+                    <h4>5h</h4>
+                    <p>Duración</p>
+                </div>
+                <div class="stat-item">
+                    <h4>80%</h4>
+                    <p>Práctica</p>
+                </div>
+                <div class="stat-item">
+                    <h4>1:10</h4>
+                    <p>Ratio</p>
+                </div>
+                <div class="stat-item">
+                    <h4>121</h4>
+                    <p>Años ACA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Módulos -->
+    <section class="section" style="background: #222228;">
+        <div class="container">
+            <h2 class="section-title">Módulos del Programa</h2>
+            
+            <div class="two-col">
+                <div class="card theory-card">
+                    <div class="card-icon">📚</div>
+                    <h3>Fundamentos Teóricos</h3>
+                    <p>Física del frenado, centro de gravedad, adherencia, tiempo de reacción. Dinámica de peso con pasajero y factores de riesgo urbano.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🏍️</div>
+                    <h3>Frenado de Emergencia</h3>
+                    <p>Técnicas de frenado delantero, trasero y combinado. Control de adherencia y estabilidad con pasajero.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Slalom & Control</h3>
+                    <p>Postura correcta, mirada anticipada y manejo en espacios reducidos. Dominio del centro de gravedad.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🛡️</div>
+                    <h3>Manejo Defensivo</h3>
+                    <p>Anticipación de riesgos, puntos ciegos, espacio de amortiguamiento y convivencia vial urbana.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cronograma -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Cronograma | 28 Abril | ACA Palermo</h2>
+            
+            <div class="info-box" style="margin-top: 0.8rem; padding: 0.8rem;">
+                <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-secondary);">
+                    <span><strong style="color: var(--primary);">10:00</strong> Bienvenida</span>
+                    <span><strong style="color: var(--primary);">10:30</strong> Teoría</span>
+                    <span><strong style="color: var(--primary);">11:20</strong> Frenado</span>
+                    <span><strong style="color: var(--primary);">12:50</strong> Slalom</span>
+                    <span><strong style="color: var(--primary);">14:20</strong> Almuerzo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Incluye -->
+    <section class="section" style="background: var(--bg-dark);">
+        <div class="container">
+            <h2 class="section-title">Incluye</h2>
+            
+            <div class="includes-list">
+                <div class="include-item">
+                    <div class="check">1</div>
+                    <span><strong>Pista homologada exclusiva</strong></span>
+                </div>
+                
+                <div class="include-item">
+                    <div class="check">2</div>
+                    <span><strong>Instructores certificados</strong> en pista + docentes Ed. Vial en aula</span>
+                </div>
+                
+                <div class="include-item">
+                    <div class="check">3</div>
+                    <span><strong>Programa pedagógico a medida</strong></span>
+                </div>
+                
+                <div class="include-item">
+                    <div class="check">4</div>
+                    <span><strong>Desayuno, almuerzo y coffee</strong></span>
+                </div>
+                
+                <div class="include-item">
+                    <div class="check">5</div>
+                    <span><strong>Mesas de trabajo previas</strong> de coordinación</span>
+                </div>
+                
+                <div class="include-item">
+                    <div class="check">6</div>
+                    <span><strong>Difusión en medios</strong> y plataformas</span>
+                </div>
+                
+                <div class="include-item">
+                    <div class="check">7</div>
+                    <span><strong>Seguro de accidentes</strong></span>
+                </div>
+                
+                <div class="include-item" style="background: rgba(255,215,0,0.1); border-color: var(--primary);">
+                    <div class="check" style="background: #000; color: var(--primary);">★</div>
+                    <span><strong>40 participantes + Equipo Uber</strong></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cotización + CTA -->
+    <section class="section" style="text-align: center; padding-bottom: 0;">
+        <div class="container">
+            <h2 class="section-title" style="font-size: 1.1rem;">Cotización</h2>
+            
+            <div class="cotizacion-box">
+                <div class="cotizacion-label">Inversión Total</div>
+                <div class="cotizacion-price">USD $17.000</div>
+                <div class="cotizacion-currency">Válido hasta confirmación • Reserva 30 días antes</div>
+            </div>
+
+            <div class="btn-group">
+                <a href="mailto:movilidad@aca.org.ar" class="btn">Contactar</a>
+                <button class="btn btn-outline" onclick="window.print()">📄 Descargar PDF</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Image -->
+    <div class="final-image"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="partners">
+            <div class="partner">AUTOMÓVIL <span>CLUB ARGENTINO</span></div>
+            <div style="color: var(--primary);">×</div>
+            <div class="partner">UBER <span>Argentina</span></div>
+        </div>
+        <p>También sedes disponibles en el interior del país</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">movilidad@aca.org.ar</p>
+    </footer>
+
+</body>
+</html>
